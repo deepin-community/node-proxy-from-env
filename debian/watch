@@ -1,0 +1,10 @@
+version=4
+opts=\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-proxy-from-env-$1/ \
+ https://github.com/Rob--W/proxy-from-env/tags .*/archive/.*/v?([\d\.]+).tar.gz group
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-proxy-from-env,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-proxy-from-env-$1/" \
+ https://registry.npmjs.org/@types/proxy-from-env https://registry.npmjs.org/@types/proxy-from-env/-/proxy-from-env-([\d\.]+)@ARCHIVE_EXT@ group
